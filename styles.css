@@ -5,13 +5,73 @@
 }
 
 body {
+  background-color: #5c493d;
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   /* eliminate scrollbars */
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+ /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 1.9rem;
+  max-width: 100%;
+  width: 22rem;
+  color: #f59330;
+  font-weight: 700;
+}
+
+.progress-container::before {
+  background-color: #e0e0e0;
+  content: '';
+  /* position absolute within the progress container */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  /* center the progress line on the Y axis */
+  transform: translateY(-50%);
+  height: 0.2rem;
+  width: 100%;
+  /* put progress line behind the numbers */
+  z-index: -1;
+}
+
+/* create the orange line that shows the progress of the transaction */
+.progress {
+  background-color: #f59330;
+  /* position absolute within the progress container */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  /* center the progress line on the Y axis */
+  transform: translateY(-50%);
+  height: 0.2rem;
+  width: 0%;
+  /* put progress line behind the numbers */
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.circle {
+  background-color: #fff;
+  color: #f59330;
+  border-radius: 50%;
+  height: 1.9rem;
+  width: 1.9rem;
+  /* display numbers in the middle of circular backgrounds */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #e0e0e0;
 }
