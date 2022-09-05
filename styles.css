@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+:root {
+  --line-border-fill: #f59330;
+  --line-border-empty: #e0e0e0;
+}
+
 body {
   background-color: #5c493d;
   font-family: 'Open Sans', sans-serif;
@@ -33,7 +38,7 @@ body {
 }
 
 .progress-container::before {
-  background-color: #e0e0e0;
+  background-color: var(--line-border-empty);
   content: '';
   /* position absolute within the progress container */
   position: absolute;
@@ -49,7 +54,7 @@ body {
 
 /* create the orange line that shows the progress of the transaction */
 .progress {
-  background-color: #f59330;
+  background-color: var(--line-border-fill);
   /* position absolute within the progress container */
   position: absolute;
   top: 50%;
@@ -73,5 +78,36 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid #e0e0e0;
+  border: 3px solid var(--line-border-empty);
+  transition: 0.4s ease;
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+
+.btn {
+  background-color: var(--line-border-fill);
+  color: #5c493d;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 0;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0.5rem 1.9rem;
+  margin: 0.33rem;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
 }
